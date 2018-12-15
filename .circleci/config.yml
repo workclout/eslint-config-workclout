@@ -20,7 +20,7 @@ references:
   sshKeys: &sshKeys
     add_ssh_keys:
       fingerprints:
-        - "14:2f:bf:ca:91:4e:69:dd:d2:85:ab:da:11:d5:bc:3a"
+        - "ba:52:95:22:60:cf:ef:73:c2:84:47:53:78:d1:6b:0e"
 
 ###############################
 # JOB DEFINITIONS
