@@ -1,5 +1,5 @@
 {
-  "src": {
+  "git": {
     "tagName": "v%s",
     "commitMessage": "v%s\n\n[skip ci]",
     "tagAnnotation": "v%s"
