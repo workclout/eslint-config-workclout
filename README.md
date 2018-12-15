@@ -13,7 +13,7 @@ This project treats all dependencies as first-class citizens. What this means is
 
 ### Install Packages
 ```bash
-yarn add eslint eslint-config-workclout
+npm i eslint eslint-config-workclout
 ```
 
 ### Add it to your .eslintrc
