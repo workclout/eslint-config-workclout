@@ -1,0 +1,72 @@
+version: 2
+
+###############################
+# REFERENCES & DEFAULTS
+###############################
+references:
+  containerConfig: &containerConfig
+    docker:
+      - image: circleci/node:10.14
+  restoreCache: &restoreCache
+    restore_cache:
+      keys:
+        - v1-dependencies-{{ checksum "package.json" }}
+        - v1-dependencies-
+  saveCache: &saveCache
+    save_cache:
+      paths:
+        - node_modules
+      key: v1-dependencies-{{ checksum "package.json" }}
+  sshKeys: &sshKeys
+    add_ssh_keys:
+      fingerprints:
+        - "14:2f:bf:ca:91:4e:69:dd:d2:85:ab:da:11:d5:bc:3a"
+
+###############################
+# JOB DEFINITIONS
+###############################
+jobs:
+  test:
+    <<: *containerConfig
+    steps:
+      - checkout
+      - *restoreCache
+      - run: npm install
+      - *saveCache
+      - run: npm run lint
+  release-production:
+    <<: *containerConfig
+    steps:
+      - *sshKeys
+      - checkout
+      - *restoreCache
+      - run: npm install
+      - *saveCache
+      - run: |
+          git config --global user.email circleci@circleci.com
+          git config --global user.name CircleCI
+          git config --global push.default simple
+      - run: npm run create-release -n
+
+###############################
+# WORKFLOW DEFINITIONS
+###############################
+workflows:
+  version: 2
+  test-and-release:
+    jobs:
+      - test:
+          filters:
+            tags:
+              ignore:
+                - /.*/
+      - release-production:
+          requires:
+            - test
+          filters:
+            tags:
+              ignore:
+                - /.*/
+            branches:
+              only:
+                - master
