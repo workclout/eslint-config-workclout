@@ -2,7 +2,8 @@
   "git": {
     "tagName": "v%s",
     "commitMessage": "v%s\n\n[skip ci]",
-    "tagAnnotation": "v%s"
+    "tagAnnotation": "v%s",
+    "requireCleanWorkingDir": false
   },
   "github": {
     "release": true,
