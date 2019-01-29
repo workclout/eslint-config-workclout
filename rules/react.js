@@ -24,30 +24,6 @@ module.exports = {
       jsx: true,
     },
   },
-  overrides: [
-    {
-      files: [
-        'src/**/*',
-      ],
-      rules: {
-        'flowtype/require-valid-file-annotation': [ERROR, 'always', {
-          annotationStyle: 'line',
-        }],
-      },
-    },
-    {
-      files: [
-        '**/__mocks__/**/*',
-        '**/__tests__/**/*',
-        '**/__generated__/**/*',
-      ],
-      rules: {
-        'flowtype/require-valid-file-annotation': 0,
-        'require-jsdoc': 0,
-        'valid-jsdoc': 0,
-      },
-    },
-  ],
   rules: {
     // Disable import resolution checks in favor of flowconfig's untyped-type-import=error
     'import/no-unresolved': 0,
