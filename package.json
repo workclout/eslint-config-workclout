@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-workclout",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "JavaScript Coding Standards",
   "main": "rules/index.js",
   "repository": "git@github.com:workclout/eslint-config-workclout.git",
