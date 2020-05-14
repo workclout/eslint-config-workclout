@@ -1,13 +1,13 @@
 {
   "git": {
-    "tagName": "v%s",
-    "commitMessage": "v%s\n\n[skip ci]",
-    "tagAnnotation": "v%s",
+    "tagName": "v${version}",
+    "commitMessage": "v${version}\n\n[skip ci]",
+    "tagAnnotation": "v${version}",
     "requireCleanWorkingDir": false
   },
   "github": {
     "release": true,
-    "releaseName": "v%s"
+    "releaseName": "v${version}"
   },
   "npm": {
     "publish": false
